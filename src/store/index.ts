@@ -1,4 +1,4 @@
-// src/store/index.ts
+// 使用provide/inject代替vuex的功能
 import { createStore } from 'vuex'
 
 interface ItodoItem {

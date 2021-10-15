@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    :default-active="activeIndex2"
+    :default-active="activeIndex"
     class="el-menu-demo"
     mode="horizontal"
     background-color="#545c64"
@@ -10,20 +10,33 @@
   >
     <el-menu-item index="/">home</el-menu-item>
     <el-menu-item index="device">device</el-menu-item>
+    <el-menu-item index="user">user</el-menu-item>
     <el-menu-item index="login">login</el-menu-item>
   </el-menu>
   <router-view />
 </template>
 
 <script setup lang="ts">
-import {provide,reactive,ref} from 'vue';
-import {USER_PROVIDE, User} from '@/modules/provide';
+import {ref,computed, watch, nextTick} from 'vue';
+import {initStore} from '@/modules/store';
+import {useRoute} from 'vue-router';
 
-const user = reactive<User>({
-  name: 'jkw'
+initStore()
+const route = useRoute()
+const initRoute = computed(() => route.path)
+
+  const activeIndex = ref(initRoute.value)
+nextTick(() => {
+  activeIndex.value = initRoute.value
 })
-provide(USER_PROVIDE, user)
 
-const activeIndex2 = ref('/')
 
+// let activeIndex = ref(initRoute.value)
+
+// watch(() => initRoute.value, () => {
+//   console.log('route', initRoute.value);
+  
+//   // activeIndex.value = initRoute.value
+//   const activeIndex = ref(initRoute.value)
+// })
 </script>

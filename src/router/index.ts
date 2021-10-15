@@ -14,7 +14,7 @@ const constantRoutes: Array<RouteRecordRaw> = [
     name: 'Login',
     component: () => import('@/views/login/Index.vue'),
     meta: {
-      title: '首页'
+      title: '登录'
     }
   },
   {
@@ -22,7 +22,15 @@ const constantRoutes: Array<RouteRecordRaw> = [
     name: 'Device',
     component: () => import('@/views/device/Index.vue'),
     meta: {
-      title: 'device'
+      title: '设备'
+    }
+  },
+  {
+    path: '/user',
+    name: 'User',
+    component: () => import('@/views/user/Index.vue'),
+    meta: {
+      title: '用户'
     }
   }
 ]
