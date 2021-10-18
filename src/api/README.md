@@ -17,4 +17,4 @@
 
 ## modules
 
-- 继承abstract，使用types，定义所有接口
+- 继承abstract，使用types，定义所有接口，返回一个新接口对象

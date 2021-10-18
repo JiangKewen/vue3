@@ -17,26 +17,25 @@
 </template>
 
 <script setup lang="ts">
-import {ref,computed, watch, nextTick} from 'vue';
-import {initStore} from '@/modules/store';
-import {useRoute} from 'vue-router';
+import { ref, watch } from "vue";
+import { initStore } from "@/modules/store";
+import { useRoute } from "vue-router";
 
-initStore()
-const route = useRoute()
-const initRoute = computed(() => route.path)
+initStore();
+const route = useRoute();
+const activeIndex = ref("");
 
-  const activeIndex = ref(initRoute.value)
-nextTick(() => {
-  activeIndex.value = initRoute.value
-})
-
-
-// let activeIndex = ref(initRoute.value)
-
-// watch(() => initRoute.value, () => {
-//   console.log('route', initRoute.value);
-  
-//   // activeIndex.value = initRoute.value
-//   const activeIndex = ref(initRoute.value)
-// })
+watch(
+  () => route.fullPath,
+  () => {
+    let path = route.fullPath;
+    if (path !== "/") {
+      path = path.startsWith("/") ? path.slice(1) : path;
+      if (path === 'home') {
+        path = '/'
+      }
+    }
+    activeIndex.value = path;
+  }
+);
 </script>

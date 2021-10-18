@@ -18,7 +18,7 @@ const props = withDefaults(
     bar?: number;
   }>(),
   {
-    leaf: "2",
+    bar: 2,
   }
 );
 
