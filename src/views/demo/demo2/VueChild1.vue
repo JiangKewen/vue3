@@ -5,6 +5,9 @@
 </template>
 
 <script setup lang="ts">
+/**child1
+ * define props
+ */
 import { toRefs } from 'vue'
 
 interface Props {

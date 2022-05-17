@@ -15,6 +15,11 @@
 </template>
 
 <script setup lang="ts">
+/**1
+ * 组合式函数
+ * ref
+ * reactive
+ */
 import useCount from './useCount'
 import useFruit from './useFruit'
 

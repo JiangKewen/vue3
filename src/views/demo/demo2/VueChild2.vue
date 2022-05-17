@@ -8,6 +8,9 @@
 </template>
 
 <script setup lang="ts">
+/**child1
+ * define emits
+ */
 import { toRefs } from 'vue'
 
 interface Props {

@@ -15,11 +15,13 @@
   </div>
   <hr />
   <div>
-    <VueChild3 />
+    <VueChild3 v-model:count="fruits.count" />
   </div>
 </template>
 <script setup lang="ts">
-import { computed } from '@vue/reactivity'
+/**2
+ * 父子组件
+ */
 import { ref } from 'vue'
 import useFruit from '../demo1/useFruit'
 import VueChild1 from './VueChild1.vue'
