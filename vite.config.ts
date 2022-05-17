@@ -1,28 +1,26 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-  server: {
-    host: '0.0.0.0',
-    port: 3003,
-    open: true,
-    proxy: {
-      '^/mook': {
-        target: 'http:jkw.ccc:9999',
-        changeOrigin: true, //开启代理
-        rewrite: (path) => path.replace(/^\/mook/, '')
-      },
-    },
-  },
+  plugins: [
+    vue({
+      reactivityTransform: true,
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
+      '@': resolve(__dirname, 'src'),
+    },
   },
-  build: {
-    // assetsDir: '../dist/assets'
-  }
 })
