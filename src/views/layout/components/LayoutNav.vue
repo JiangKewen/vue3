@@ -74,30 +74,6 @@ const routes = ref<Nav[]>([
     path: '/work',
     children: [],
   },
-  {
-    name: '感知设备',
-    path: '/device',
-    children: [],
-  },
-  {
-    name: '告警中心',
-    path: '/alarm',
-    children: [],
-  },
-  {
-    name: 'OTA',
-    path: '/ota',
-    children: [
-      {
-        name: '固件管理',
-        path: '/ota/firmware',
-      },
-      {
-        name: '固件升级',
-        path: '/ota/upload',
-      },
-    ],
-  },
 ])
 </script>
 

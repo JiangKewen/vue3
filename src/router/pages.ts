@@ -6,50 +6,8 @@ export const routes: RouteRecordRaw[] = [
     name: 'home',
     path: '/',
     component: Layout,
-    redirect: '/alarm',
+    redirect: '/demo/1',
     children: [
-      {
-        name: 'alarm',
-        path: 'alarm',
-        meta: {
-          type: '01',
-        },
-        component: () => import('../views/alarm/AlarmIndex.vue'),
-      },
-      {
-        name: 'device',
-        path: 'device',
-        meta: {
-          type: '01',
-        },
-        component: () => import('../views/device/DeviceIndex.vue'),
-      },
-      {
-        name: 'ota',
-        path: 'ota',
-        meta: {
-          type: '01',
-        },
-        component: () => import('../views/ota/OtaIndex.vue'),
-        children: [
-          {
-            name: 'firmware',
-            path: 'firmware',
-            meta: {
-              type: '02',
-            },
-            component: () => import('../views/ota/firmware/FirmWare.vue'),
-          },
-          {
-            name: 'upload',
-            path: 'upload',
-            meta: {
-              type: '02',
-            },
-            component: () => import('../views/ota/upload/DeviceUpload.vue'),
-          },
-        ],
-      },
       {
         name: 'demo',
         path: 'demo',
