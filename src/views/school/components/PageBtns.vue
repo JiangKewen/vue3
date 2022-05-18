@@ -5,15 +5,23 @@
     <!-- <div :class="$style.a">外面的options-box不用$style,则这个不会生效</div> -->
   </section>
   <!-- <div :class="$style[b]">bbbbbbb</div> -->
+  <!-- <div class="theme">theme</div> -->
 </template>
 
 <script setup lang="ts">
-import { ref, useCssModule } from 'vue'
+import { reactive, ref, useCssModule } from 'vue'
 
 // useCssModule()
 // useCssModule('classes') // 自定义注入名称的时候
 
 const b = ref<string>('bb')
+
+const theme = reactive({
+  color: 'green',
+})
+setTimeout(() => {
+  theme.color = 'tan'
+}, 2000)
 </script>
 
 <style lang="scss" scoped>
@@ -24,6 +32,10 @@ const b = ref<string>('bb')
   color: green;
   margin: 20px;
 }
+.theme {
+  color: v-bind('theme.color');
+}
+
 .options-box {
   margin: 18px 0 20px 0;
   .a {
