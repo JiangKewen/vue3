@@ -67,6 +67,52 @@ export const routes: RouteRecordRaw[] = [
         ],
       },
       {
+        name: 'schoolsystem',
+        path: 'school',
+        meta: {
+          type: '01',
+        },
+        component: () => import('@/views/school/SchoolRoute.vue'),
+        children: [
+          {
+            name: 'school',
+            path: 'school',
+            meta: {
+              type: '02',
+              name: '学校',
+            },
+            component: () => import('@/views/school/school/SchoolIndex.vue'),
+          },
+          {
+            name: 'classes',
+            path: 'classes',
+            meta: {
+              type: '02',
+              name: '班级',
+            },
+            component: () => import('@/views/school/classes/ClassesIndex.vue'),
+          },
+          {
+            name: 'teacher',
+            path: 'teacher',
+            meta: {
+              type: '02',
+              name: '教师',
+            },
+            component: () => import('@/views/school/teacher/TeacherIndex.vue'),
+          },
+          {
+            name: 'student',
+            path: 'student',
+            meta: {
+              type: '02',
+              name: '学生',
+            },
+            component: () => import('@/views/school/student/StudentIndex.vue'),
+          },
+        ],
+      },
+      {
         name: 'work',
         path: 'work',
         meta: {

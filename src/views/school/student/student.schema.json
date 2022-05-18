@@ -1,0 +1,45 @@
+{
+  "column": [
+    {
+      "name": "ID",
+      "key": "id",
+      "type": "input"
+    },
+    {
+      "name": "名称",
+      "key": "name",
+      "type": "input"
+    },
+    {
+      "name": "性别",
+      "key": "sex",
+      "type": "input"
+    },
+    {
+      "name": "班级",
+      "key": "cls",
+      "type": "input"
+    },
+    {
+      "name": "年级",
+      "key": "grade",
+      "type": "input"
+    },
+    {
+      "name": "学校",
+      "key": "school",
+      "type": "input"
+    },
+    {
+      "name": "年级",
+      "key": "age",
+      "type": "input"
+    },
+    {
+      "name": "语文",
+      "key": "chinese",
+      "type": "input",
+      "inTable": false
+    }
+  ]
+}

@@ -1,28 +1,32 @@
 <template>
   <el-aside class="nav-box">
-    <el-menu router class="el-menu-vertical-demo">
-      <template v-for="route in routes" :key="route.name">
+    <el-menu
+      router
+      class="el-menu-vertical-demo"
+      :default-active="defaultActive"
+    >
+      <template v-for="nav in routes" :key="nav.name">
         <!-- 多级菜单 -->
         <el-sub-menu
-          v-if="route.children && route.children.length"
-          :index="route.path"
+          v-if="nav.children && nav.children.length"
+          :index="nav.path"
         >
           <!-- 父级菜单 -->
           <template #title>
-            <span>{{ route.name }}</span>
+            <span>{{ nav.name }}</span>
           </template>
           <!-- 子级菜单 -->
           <el-menu-item
             :index="child.path"
-            v-for="child in route.children"
+            v-for="child in nav.children"
             :key="child.name"
           >
             <span>{{ child.name }}</span>
           </el-menu-item>
         </el-sub-menu>
         <!-- 一级菜单 -->
-        <el-menu-item v-else :index="route.path">
-          <span>{{ route.name }}</span>
+        <el-menu-item v-else :index="nav.path">
+          <span>{{ nav.name }}</span>
         </el-menu-item>
       </template>
     </el-menu>
@@ -30,14 +34,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useRoute } from 'vue-router'
 
 interface Nav {
   name: string
   path: string
   children?: Nav[]
 }
-
 const routes = ref<Nav[]>([
   {
     name: 'Vue3',
@@ -70,11 +74,40 @@ const routes = ref<Nav[]>([
     ],
   },
   {
+    name: '学校系统',
+    path: '/school',
+    children: [
+      {
+        name: '学校',
+        path: '/school/school',
+      },
+      {
+        name: '班级',
+        path: '/school/classes',
+      },
+      {
+        name: '教师',
+        path: '/school/teacher',
+      },
+      {
+        name: '学生',
+        path: '/school/student',
+      },
+    ],
+  },
+  {
     name: '考勤表',
     path: '/work',
     children: [],
   },
 ])
+
+const route = useRoute()
+console.log(route.fullPath, 'route')
+
+const defaultActive = computed(() => {
+  return route.fullPath || '/school/school'
+})
 </script>
 
 <style scoped lang="less">

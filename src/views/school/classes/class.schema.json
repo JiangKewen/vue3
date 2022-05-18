@@ -1,0 +1,14 @@
+{
+  "column": [
+    {
+      "name": "ID",
+      "key": "id",
+      "type": "input"
+    },
+    {
+      "name": "名称",
+      "key": "name",
+      "type": "input"
+    }
+  ]
+}
