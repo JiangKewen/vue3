@@ -1,0 +1,19 @@
+// index.ts
+import axios from 'axios'
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+
+class Request {
+  // axios 实例
+  instance: AxiosInstance
+
+  constructor(config: AxiosRequestConfig) {
+    this.instance = axios.create(config)
+  }
+  request(config: AxiosRequestConfig) {
+    return this.instance.request(config)
+  }
+}
+
+const axios2 = new Request({})
+
+export default Request

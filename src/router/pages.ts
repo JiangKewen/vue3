@@ -67,6 +67,41 @@ export const routes: RouteRecordRaw[] = [
         ],
       },
       {
+        name: 'npm',
+        path: 'npm',
+        meta: {
+          type: '01',
+        },
+        component: () => import('../views/npm/NpmIndex.vue'),
+        children: [
+          {
+            name: 'npm1',
+            path: 'chart',
+            meta: {
+              type: '02',
+            },
+            component: () => import('../views/npm/enn-chart/EnnChart.vue'),
+          },
+          {
+            name: 'npm2',
+            path: 'loginpage',
+            meta: {
+              type: '02',
+            },
+            component: () =>
+              import('../views/npm/enn-login-page/LoginPage.vue'),
+          },
+          {
+            name: 'npm3',
+            path: 'ennmap',
+            meta: {
+              type: '02',
+            },
+            component: () => import('../views/npm/enn-map/EnnMap3.vue'),
+          },
+        ],
+      },
+      {
         name: 'schoolsystem',
         path: 'school',
         meta: {

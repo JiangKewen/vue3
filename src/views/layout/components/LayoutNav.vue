@@ -74,6 +74,24 @@ const routes = ref<Nav[]>([
     ],
   },
   {
+    name: 'npm',
+    path: '/npm',
+    children: [
+      {
+        name: 'chart',
+        path: '/npm/chart',
+      },
+      {
+        name: 'loginpage',
+        path: '/npm/loginpage',
+      },
+      {
+        name: 'ennmap',
+        path: '/npm/ennmap',
+      },
+    ],
+  },
+  {
     name: '学校系统',
     path: '/school',
     children: [
