@@ -1,0 +1,126 @@
+// 自定义element-plus的部分样式
+/* 只需要重写你需要的即可 */
+@use 'sass:math';
+@use 'sass:map';
+@use 'function';
+
+$color-white: #ffffff;
+$color-black: #000000;
+$color-primary: #006ebb;
+$color-success: #6eb92c;
+$color-warning: #f9be00;
+$color-danger: #ff3000;
+$color-error: #f56c6c;
+$color-info: #cccccc;
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'white': $color-white,
+    'black': $color-black,
+    'primary': (
+      'base': $color-primary,
+    ),
+    'success': (
+      'base': $color-success,
+    ),
+    'warning': (
+      'base': $color-warning,
+    ),
+    'danger': (
+      'base': $color-danger,
+    ),
+    'error': (
+      'base': $color-error,
+    ),
+    'info': (
+      'base': $color-info,
+    ),
+  ),
+  $text-color: (
+    'primary': #333333,
+    'regular': #666666,
+    'secondary': #999999,
+    'placeholder': #cccccc,
+    // TODO 应该没问题
+    'disabled': #c0c4cc,
+  ),
+  $border-color: (
+    '': #dcdfe6,
+    'light': #c4c6cf,
+    'lighter': #dcdee3,
+    'extra-light': #e6e7eb,
+    'dark': #d4d7de,
+    'darker': #cdd0d6,
+  ),
+  $alert: (
+    'padding': 8px 16px,
+    'border-radius-base': getCssVar('border-radius-base'),
+    'title-font-size': 14px,
+    'description-font-size': 12px,
+    'close-font-size': 12px,
+    'close-customed-font-size': 12px,
+    'icon-size': 14px,
+    'icon-large-size': 28px,
+  ),
+  $button: (
+    'font-weight': getCssVar('font-weight-primary'),
+    'border-color': getCssVar('border-color'),
+    'bg-color': getCssVar('fill-color', 'blank'),
+    // TODO #FFFFFF
+    'text-color': getCssVar('text-color', 'regular'),
+    'disabled-text-color': getCssVar('disabled-text-color'),
+    'disabled-bg-color': getCssVar('fill-color', 'blank'),
+    'disabled-border-color': getCssVar('border-color-light'),
+    'divide-border-color': rgba($color-white, 0.5),
+    'hover-text-color': getCssVar('color-primary'),
+    'hover-bg-color': getCssVar('color-primary', 'light-9'),
+    'hover-border-color': getCssVar('color-primary-light-7'),
+    'active-text-color': getCssVar('button-hover-text-color'),
+    'active-border-color': getCssVar('color-primary'),
+    'active-bg-color': getCssVar('button', 'hover-bg-color'),
+  ),
+  $button-border-radius: (
+    'large': getCssVar('border-radius', 'base'),
+    'default': getCssVar('border-radius', 'base'),
+    'small': calc(#{getCssVar('border-radius', 'base')} - 1px),
+  ),
+  $button-padding-vertical: (
+    // TODO 12px
+    'large': 12px,
+    'default': 9px,
+    'small': 7px,
+  ),
+  $button-padding-horizontal: (
+    // TODO 20px
+    'large': 20px,
+    'default': 16px,
+    'small': 15px,
+  ),
+  $select-option: (
+    'height': 32px,
+  ),
+  $input: (
+    'text-color': getCssVar('text-color-regular'),
+    'border': getCssVar('border'),
+    'hover-border': getCssVar('border-color-hover'),
+    'focus-border': getCssVar('color-primary'),
+    'transparent-border': 0 0 0 1px transparent inset,
+    'border-color': getCssVar('border-color'),
+    'border-radius': getCssVar('border-radius-base'),
+    'bg-color': getCssVar('fill-color', 'blank'),
+    'icon-color': getCssVar('text-color-placeholder'),
+    'placeholder-color': getCssVar('text-color-placeholder'),
+    'hover-border-color': getCssVar('border-color-hover'),
+    'clear-hover-color': getCssVar('text-color-secondary'),
+    'focus-border-color': getCssVar('color-primary'),
+  ),
+  $input-height: (
+    'large': 40px,
+    'default': 32px,
+    'small': 24px,
+  )
+);
+
+// 如果只是按需导入，则可以忽略以下内容。
+// 如果你想导入所有样式:
+@use 'element-plus/theme-chalk/src/index.scss' as *;
